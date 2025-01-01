@@ -11,11 +11,12 @@ const db = msql2.createConnection({
     database:"test"
 });
 
+App.use(express.json());
+
     
 //////////////////////////////////
 
 App.get("/",(req,res) =>{
-
     res.json("Welcome To MySQL");
 
 });
@@ -37,11 +38,15 @@ App.get("/books",(req,res) =>{
 
 App.post("/books", (req, res) => {
     const q = "INSERT INTO books (`title`, `description`, `image`) VALUES (?)";
-    const values = ["T", "D", "I"];
+    const values = [
+        req.body.title,
+        req.body.description,
+        req.body.image,
+    ];
 
     db.query(q, [values], (err, data) => {
         if (err) return res.json(err);
-        return res.json(data);
+        return res.json("Book Added");
     });
 });
 
