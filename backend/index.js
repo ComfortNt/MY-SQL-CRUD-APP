@@ -1,6 +1,6 @@
 import express from 'express';
 import msql2 from "mysql2";
-
+import cors from 'cors';
 
 const App = express();
 const db = msql2.createConnection({
@@ -12,6 +12,7 @@ const db = msql2.createConnection({
 });
 
 App.use(express.json());
+App.use(cors());
 
     
 //////////////////////////////////
@@ -37,11 +38,12 @@ App.get("/books",(req,res) =>{
 //////////////////////////////////
 
 App.post("/books", (req, res) => {
-    const q = "INSERT INTO books (`title`, `description`, `image`) VALUES (?)";
+    const q = "INSERT INTO books (`title`, `description`, `image` , `price`) VALUES (?)";
     const values = [
         req.body.title,
         req.body.description,
         req.body.image,
+        req.body.price,
     ];
 
     db.query(q, [values], (err, data) => {
