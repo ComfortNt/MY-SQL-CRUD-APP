@@ -3,14 +3,11 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import '../css/home.css';
 
-// Webpage Fuctionality
 
 export const Home=()=>{
 
   const [books,Setbooks] = useState([]);
 
- 
-  
 
   useEffect(()=>{
 
@@ -39,12 +36,14 @@ export const Home=()=>{
 
     return <UI book={books} remove={handleRemove}/>
 
-}
+};
+
+
+
+
 
 
 const UI =({book , remove})=>{
-
-
     return(
       <div className="bookshop">
           <h1>Book Shop</h1>
