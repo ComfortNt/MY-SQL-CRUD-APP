@@ -31,20 +31,6 @@
     cursor: pointer;
 }
 
-.form .red{
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #fa0000;
-    color: white;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-}
-
-.form .red:hover {
-    background-color: #0056b3;
-}
 
 .form .blue:hover {
     background-color:  #fa0000;

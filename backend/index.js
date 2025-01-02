@@ -56,14 +56,14 @@ App.post("/books", (req, res) => {
 App.delete("/books/:id", (req,res)=>{
 
     const id = req.params.id;
-    const q = "DELELE FROM books WHERE id = ?";
+    const q = "DELETE FROM books WHERE bookID = ?";
 
     db.query(q, [id], (err,data)=>{
         if (err) return res.json(err);
         return res.json("Book Deleted");
-    })
+    });
 
-})
+});
 
 //////////////////////////////////
 App.listen(8800, ()=>{

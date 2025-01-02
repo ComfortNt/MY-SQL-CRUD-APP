@@ -29,14 +29,8 @@ export const Add=()=>{
       }
     };
 
-    const handleRemove=async(event)=>{
-      event.preventDefault();
 
-
-
-    };
-
-    return <UI change={handleChange} click={handleClick} delete={handleRemove} />
+    return <UI change={handleChange} click={handleClick} />
 
 };
 
@@ -50,6 +44,5 @@ const UI =({change , click , remove})=>{
       <input type="text" name="image" id="" placeholder="...Image"   onChange={change}/>
       <input type="number" name="price" id="" placeholder="...Price"  onChange={change} />
       <input type="submit" value="Add" className="blue" onClick={click}/>
-      <input type="submit" value="remove" className="red" onClick={remove}/>
     </div>
 )};

@@ -3,9 +3,14 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import '../css/home.css';
 
+// Webpage Fuctionality
+
 export const Home=()=>{
 
   const [books,Setbooks] = useState([]);
+
+ 
+  
 
   useEffect(()=>{
 
@@ -19,26 +24,40 @@ export const Home=()=>{
           console.log(error); 
         }
     }
+    Getbooks();  
+    
+  },[]);
+   
+ 
+  const handleRemove = async(id)=>{
+    try {
+      await axios.delete("http://localhost:8800/books/"+id);
+      location.reload();
+    } catch (err) {
+      console.log(err); 
+  }};
 
-    Getbooks();
-  },[])
+    return <UI book={books} remove={handleRemove}/>
+
+}
 
 
-    return(<UI book={books} />);
-
-  };
+const UI =({book , remove})=>{
 
 
-const UI =({book})=>{
     return(
       <div className="bookshop">
           <h1>Book Shop</h1>
-          {book.map((item , index)=>(
-            <div className="book" key={index}>
+          {book.map((item)=>(
+            <div className="book" key={item.bookID}>
                 {item.image && <img src={item.image} alt={item.image}/>}
                 <h3>{item.title}</h3>
                 <h4>${item.price}.99</h4>
                 <p>{item.description}</p>
+
+                <button>Update {item.bookID}</button>
+                <button className='red' onClick={()=> remove(item.bookID)}>Delete</button>
+
             </div>
           ))}
 
