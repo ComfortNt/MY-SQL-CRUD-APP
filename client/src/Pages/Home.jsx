@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-
+import '../css/home.css';
 
 export const Home=()=>{
 
@@ -29,19 +29,15 @@ export const Home=()=>{
   };
 
 
-
-
-
-
 const UI =({book})=>{
     return(
       <div className="bookshop">
           <h1>Book Shop</h1>
-          {book.map((item)=>(
-            <div className="book" key={item.id}>
+          {book.map((item , index)=>(
+            <div className="book" key={index}>
                 {item.image && <img src={item.image} alt={item.image}/>}
                 <h3>{item.title}</h3>
-                <h4>{item.price}</h4>
+                <h4>${item.price}.99</h4>
                 <p>{item.description}</p>
             </div>
           ))}
