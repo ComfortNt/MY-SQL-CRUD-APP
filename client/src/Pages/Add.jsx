@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import '../css/add.css'
+import '../css/add.css';
 
 export const Add=()=>{
     

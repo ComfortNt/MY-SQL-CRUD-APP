@@ -14,7 +14,6 @@ const db = msql2.createConnection({
 App.use(express.json());
 App.use(cors());
 
-    
 //////////////////////////////////
 
 App.get("/",(req,res) =>{
@@ -51,6 +50,20 @@ App.post("/books", (req, res) => {
         return res.json("Book Added");
     });
 });
+
+//////////////////////////////////
+
+App.delete("/books/:id", (req,res)=>{
+
+    const id = req.params.id;
+    const q = "DELELE FROM books WHERE id = ?";
+
+    db.query(q, [id], (err,data)=>{
+        if (err) return res.json(err);
+        return res.json("Book Deleted");
+    })
+
+})
 
 //////////////////////////////////
 App.listen(8800, ()=>{
