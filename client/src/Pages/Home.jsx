@@ -41,8 +41,6 @@ export const Home=()=>{
 
 
 
-
-
 const UI =({book , remove})=>{
     return(
       <div className="bookshop">

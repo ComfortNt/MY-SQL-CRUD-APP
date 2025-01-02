@@ -34,7 +34,7 @@ export const Add=()=>{
 
 };
 
-const UI =({change , click , remove})=>{
+const UI =({change , click})=>{
   return(
     
     <div className="form">
