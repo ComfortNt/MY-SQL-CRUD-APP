@@ -8,6 +8,11 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
+.bookshop p{
+    color: #333;
+    font-weight: 300;
+}
+
 .bookshop h1 {
     font-size: 2.5rem; 
     color: #333; 

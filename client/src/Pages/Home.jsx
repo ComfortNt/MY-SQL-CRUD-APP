@@ -28,7 +28,7 @@ export const Home=()=>{
  
   const handleRemove = async(id)=>{
     try {
-      await axios.delete("http://localhost:8800/books/"+id);
+      await axios.delete(`http://localhost:8800/books/${id}`);
       location.reload();
     } catch (err) {
       console.log(err); 
@@ -52,7 +52,7 @@ const UI =({book , remove})=>{
                 <h4>${item.price}.99</h4>
                 <p>{item.description}</p>
 
-                <button>Update {item.bookID}</button>
+                <button><Link to={`/update/${item.bookID}`}>Update</Link></button>
                 <button className='red' onClick={()=> remove(item.bookID)}>Delete</button>
 
             </div>

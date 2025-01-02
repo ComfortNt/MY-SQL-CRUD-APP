@@ -66,6 +66,27 @@ App.delete("/books/:id", (req,res)=>{
 });
 
 //////////////////////////////////
+
+App.put("/books/:id", (req,res)=>{
+
+    const id = req.params.id;
+    const q = "UPDATE books SET `title` = ? , `description` = ? , `image` = ? , `price` = ? WHERE bookID = ?";
+
+    const values = [
+        req.body.title,
+        req.body.description,
+        req.body.image,
+        req.body.price,
+    ];
+
+    db.query(q, [...values , id], (err,data)=>{
+        if (err) return res.json(err);
+        return res.json("Book Updated");
+    });
+
+});
+
+//////////////////////////////////
 App.listen(8800, ()=>{
     console.log("Backend Connected");
     

@@ -38,7 +38,7 @@ const UI =({change , click})=>{
   return(
     
     <div className="form">
-        <h2> Enter Book </h2>
+        <h2> Add New Book </h2>
       <input type="text" name="title" id="" placeholder="...Tiltle" onChange={change} />
       <input type="text" name="description" id="" placeholder="...description"  onChange={change} />
       <input type="text" name="image" id="" placeholder="...Image"   onChange={change}/>
